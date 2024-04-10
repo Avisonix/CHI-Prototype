@@ -1,44 +1,66 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Register Page</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
     <div class="container">
-        <img src="https://copenhagenhealthinnovation.dk/wp-content/uploads/2022/11/CHI-REG-H-kombineret-logo-3.png" alt="Copenhagen Health Innovation Logo" class="logo">
-        <div class="box">
-            <h2>Register</h2>
-            <form>
-                <label for="first_name">First Name:</label>
-                <input type="text" id="first_name" name="first_name" required><br><br>
+      <img
+        src="https://copenhagenhealthinnovation.dk/wp-content/uploads/2022/11/CHI-REG-H-kombineret-logo-3.png"
+        alt="Copenhagen Health Innovation Logo"
+        class="logo"
+      />
+      <div class="box">
+        <h2>Register</h2>
+        <form>
+          <label for="first_name">First Name:</label>
+          <input
+            type="text"
+            id="first_name"
+            name="first_name"
+            required
+          /><br /><br />
 
-                <label for="last_name">Last Name:</label>
-                <input type="text" id="last_name" name="last_name" required><br><br>
+          <label for="last_name">Last Name:</label>
+          <input
+            type="text"
+            id="last_name"
+            name="last_name"
+            required
+          /><br /><br />
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br><br>
-                
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required><br><br>
-                
-                <label for="gender">Gender:</label>
-                <select id="gender" name="gender">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                </select><br><br>
-                
-                <label for="role">Role:</label>
-                <select id="role" name="role">
-                    <option value="student">Student</option>
-                    <option value="teacher">Teacher</option>
-                    <option value="chi_staff">CHI Staff</option>
-                </select><br><br>
-                
-                <input type="submit" value="Register">
-            </form>
-        </div>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required /><br /><br />
+
+          <label for="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+          /><br /><br />
+
+          <label for="gender">Gender:</label>
+          <select id="gender" name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option></select
+          ><br /><br />
+
+          <label for="role">Role:</label>
+          <select id="role" name="role">
+            <option value="student">Student</option>
+            <option value="professor">Professor</option>
+            <option value="knowlegdePerson">Knowlegde person</option>
+            <option value="admin">Admin</option>
+            <option value="chip">CHIP</option>
+            <option value="caseMaster">Case master</option></select
+          ><br /><br />
+
+          <input type="submit" value="Register" />
+        </form>
+      </div>
     </div>
-</body>
+  </body>
 </html>
