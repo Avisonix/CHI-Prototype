@@ -102,8 +102,9 @@ input[type="checkbox"] {
     top: 0;
     left: 0;
     overflow-y: auto;
-    z-index: 100; /* Sørg for at sidebaren er foran indholdet */
+    z-index: 100;
 }
+
 
 .sidebar-header {
     background-color: #222;
@@ -147,19 +148,21 @@ input[type="checkbox"] {
 }
 
 .content {
-    max-width: 800px;
-    margin: 0 auto;
+    max-width: calc(100% - 250px); /* Beregn bredden af .content-container ved at trække sidebar's bredde */
+    margin-left: 250px; /* Placer .content-container til højre for sidebar'en */
     padding: 20px;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .case-list {
     display: flex;
     flex-direction: column;
-    margin-right: 50px;
-    flex-grow: 1;
-    width: -webkit-fill-available;
+    flex-grow: 1; /* Lad .case-list fylde det tilgængelige rum */
+    margin-right: 30px; /* Tilføj en lille margin til højre */
+    max-height: calc(100vh - 100px); /* Sæt en maksimal højde for .case-list (100vh minus header og margen) */
+    width: calc(100% - 30px); /* Juster bredden til at tage højde for marginen */
 }
 
 .case {
@@ -168,13 +171,11 @@ input[type="checkbox"] {
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Allow cases to grow to fill remaining space */
-    width: 100%; /* Set width to 100% */
+    width: 100%; /* Sæt bredden til 100% */
 }
 
 .cell {
     padding: 10px;
-    flex-grow: 1; /* Allow cells to grow to fill remaining space */
 }
 
 h2 {
