@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Tilføjelse af rulning */
+        .content {
+            overflow-y: auto;
+        }
+    </style>
 </head>
 <body>
     <div class="sidebar">
@@ -12,14 +18,14 @@
             Admin Dashboard
         </div>
         <ul class="menu">
-            <li><a href="case_overview.html"class="active">Case Overview</a></li>
+            <li><a href="case_overview.html" class="active">Case Overview</a></li>
             <li><a href="messages.html">Messages</a></li>
             <li><a href="user_admin.html">User Administration</a></li>
         </ul>
     </div>
     <div class="content">
-        <h2>Case Overview</h2>
         <div class="case-list">
+            <h2>Ongoing Cases</h2>
             <!-- Her vises alle aktive cases -->
             <div class="case">
                 <div class="cell">
@@ -64,11 +70,48 @@
                 </div>
             </div>
         </div>
-        <div class="admin-actions">
-            <!-- Her vises muligheder for admin handling -->
-            <h3>Admin Actions</h3>
-            <button class="approve-case">Approve Case</button>
-            <button class="reject-case">Reject Case</button>
+        <div class="case-list">
+            <h2>Case and Course Approvals</h2>
+            <!-- Ny case, der skal godkendes -->
+            <div class="case">
+                <div class="cell">
+                    <h3>New Case Awaiting Approval</h3>
+                    <p>Status: Pending Approval</p>
+                </div>
+                <div class="cell">
+                    <p>Description: This is a new case awaiting approval.</p>
+                    <p>Assigned Users:</p>
+                    <ul>
+                        <li>User 5</li>
+                        <li>User 6</li>
+                    </ul>
+                    <a href="#">View Full Case</a>
+                </div>
+                <div class="cell">
+                    <button class="approve-request">Approve</button>
+                    <button class="reject-request">Reject</button>
+                </div>
+            </div>
+            <!-- Redigeret case, der skal godkendes -->
+            <div class="case">
+                <div class="cell">
+                    <h3>Edited Case Awaiting Approval</h3>
+                    <p>Status: Pending Approval</p>
+                </div>
+                <div class="cell">
+                    <p>Description: This is an edited case awaiting approval.</p>
+                    <p>Assigned Users:</p>
+                    <ul>
+                        <li>User 7</li>
+                        <li>User 8</li>
+                    </ul>
+                    <a href="#">View Full Case</a>
+                </div>
+                <div class="cell">
+                    <button class="approve-request">Approve</button>
+                    <button class="reject-request">Reject</button>
+                </div>
+            </div>
         </div>
     </div>
 </body>

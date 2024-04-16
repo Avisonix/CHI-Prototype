@@ -1,14 +1,7 @@
-/* global.css */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #fff; /* Hvid baggrund */
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    font-family: Arial, sans-serif;
 }
 
 .container {
@@ -16,10 +9,11 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-top: 50px; /* Added margin for spacing */
 }
 
 .logo {
-    width: 300px; /* Juster størrelsen efter behov */
+    width: 300px; /* Adjusted logo width */
     height: auto;
     margin-bottom: 20px;
 }
@@ -33,7 +27,6 @@ body {
     text-align: center;
 }
 
-h1,
 h2 {
     color: #333;
 }
@@ -85,63 +78,21 @@ a:hover {
 input[type="checkbox"] {
     margin-right: 5px;
 }
-.filter-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
+
+.extras {
+    text-align: center;
 }
 
-.filter-bar input[type="text"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    flex-grow: 1;
-    margin-right: 10px;
+.extras a {
+    color: #007bff;
+    text-decoration: none;
 }
 
-.actions {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 5px;
+.extras a:hover {
+    text-decoration: underline;
 }
 
-.actions button {
-    background-color: #e74b7f;
-    color: #fff;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    margin-left: 5px;
-}
-
-.actions button:hover {
-    background-color: #d64574;
-}
-
-.case-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-.case-list li {
-    background-color: #dcdcdc; 
-    padding: 10px;
-    border-radius: 3px;
-    margin-bottom: 10px;
-    position: relative;
-}
-
-.case-list li:hover {
-    background-color: #c0c0c0;
-}
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
-
+/* Sidebar */
 .sidebar {
     background-color: #333;
     color: #fff;
@@ -190,6 +141,7 @@ body {
     margin-left: 250px; /* Match sidebar width */
     padding: 20px;
 }
+
 .menu li a.active {
     background-color: #444; /* Gør baggrunden mørkere for det aktive link */
 }
@@ -198,21 +150,31 @@ body {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+    display: flex;
+    flex-direction: row;
 }
 
 .case-list {
     display: flex;
     flex-direction: column;
+    margin-right: 50px;
+    flex-grow: 1;
+    width: -webkit-fill-available;
 }
 
 .case {
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allow cases to grow to fill remaining space */
+    width: 100%; /* Set width to 100% */
 }
 
 .cell {
     padding: 10px;
+    flex-grow: 1; /* Allow cells to grow to fill remaining space */
 }
 
 h2 {
@@ -236,15 +198,6 @@ h3 {
     height: 100%;
 }
 
-a {
-    text-decoration: none;
-    color: #007bff;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
 button {
     padding: 8px 16px;
     border: none;
@@ -257,6 +210,7 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
 ul {
     padding: 0;
     margin: 0;
