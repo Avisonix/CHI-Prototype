@@ -222,7 +222,8 @@ ul {
     justify-content: center;
     margin-bottom: 20px; /* Tilføjelse af ekstra mellemrum nedenunder søgefeltet */
     max-width: calc(100% - 250px);
-    margin-left: 250px
+    margin-left: 300px;
+    margin-right: 50px;
 }
 
 .search-box {
@@ -399,4 +400,51 @@ ul {
 
 .user-table tbody tr:hover {
     background-color: #eaeaea;
+}
+.user-profile {
+    padding: 20px;
+}
+
+.user-profile h2 {
+    margin-bottom: 20px;
+}
+
+.user-profile form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.user-profile .form-group {
+    margin-bottom: 15px;
+}
+
+.user-profile label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.user-profile input[type="text"],
+.user-profile input[type="email"],
+.user-profile input[type="password"],
+.user-profile select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.user-profile button[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.user-profile button[type="submit"]:hover {
+    background-color: #0056b3;
 }
