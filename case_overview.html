@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            Admin Dashboard
+        </div>
+        <ul class="menu">
+            <li><a href="case_overview.html"class="active">Case Overview</a></li>
+            <li><a href="messages.html">Messages</a></li>
+            <li><a href="user_admin.html">User Administration</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h2>Case Overview</h2>
+        <div class="case-list">
+            <!-- Her vises alle aktive cases -->
+            <div class="case">
+                <div class="cell">
+                    <h3>Case 1</h3>
+                    <p>Status: In Progress</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 50%;"></div>
+                    </div>
+                </div>
+                <div class="cell">
+                    <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>Assigned Users:</p>
+                    <ul>
+                        <li>User 1</li>
+                        <li>User 2</li>
+                    </ul>
+                    <a href="full_case.html">View Full Case</a>
+                </div>
+                <div class="cell">
+                    <button class="connect-users">Connect Users</button>
+                </div>
+            </div>
+            <div class="case">
+                <div class="cell">
+                    <h3>Case 2</h3>
+                    <p>Status: In Progress</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 30%;"></div>
+                    </div>
+                </div>
+                <div class="cell">
+                    <p>Description: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>Assigned Users:</p>
+                    <ul>
+                        <li>User 3</li>
+                        <li>User 4</li>
+                    </ul>
+                    <a href="full_case.html">View Full Case</a>
+                </div>
+                <div class="cell">
+                    <button class="connect-users">Connect Users</button>
+                </div>
+            </div>
+        </div>
+        <div class="admin-actions">
+            <!-- Her vises muligheder for admin handling -->
+            <h3>Admin Actions</h3>
+            <button class="approve-case">Approve Case</button>
+            <button class="reject-case">Reject Case</button>
+        </div>
+    </div>
+</body>
+</html>
