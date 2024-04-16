@@ -13,13 +13,51 @@
         </div>
         <ul class="menu">
             <li><a href="case_overview.html">Case Overview</a></li>
-            <li><a href="messages.html" class="active">Messages</a></li>
             <li><a href="user_admin.html">User Administration</a></li>
+            <li><a href="messages.html" class="active">Messages</a></li>
         </ul>
     </div>
 
     <div class="content">
-        <!-- Content will be loaded here -->
+        <div class="message-list">
+            <!-- Left Section for Message Headers -->
+            <div class="message-headers">
+                <h2>Message Headers</h2>
+                <ul>
+                    <li><a href="#">Subject 1</a></li>
+                    <li><a href="#">Subject 2</a></li>
+                    <!-- Add more message subjects here -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="message-details">
+            <!-- Right Section for Full Message and Replies -->
+            <div class="full-message">
+                <h2>Full Message</h2>
+                <div class="message-info">
+                    <div class="sender">Sender: John Doe</div>
+                    <div class="timestamp">Timestamp: Today, 10:30 AM</div>
+                </div>
+                <div class="message-content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et enim sit amet lorem convallis blandit.</p>
+                </div>
+            </div>
+
+            <div class="message-replies">
+                <h2>Replies</h2>
+                <!-- Add replies here -->
+                <div class="reply">
+                    <div class="reply-info">
+                        <div class="sender">Sender: Jane Doe</div>
+                        <div class="timestamp">Timestamp: Today, 11:00 AM</div>
+                    </div>
+                    <div class="reply-content">
+                        <p>Thank you for your message.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

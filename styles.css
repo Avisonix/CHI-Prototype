@@ -217,3 +217,186 @@ ul {
     margin: 0;
     list-style: none;
 }
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; /* Tilføjelse af ekstra mellemrum nedenunder søgefeltet */
+    max-width: calc(100% - 250px);
+    margin-left: 250px
+}
+
+.search-box {
+    padding: 10px;
+    margin-right: 10px; /* Tilføjelse af højremargen for at adskille søgefeltet fra knappen */
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.search-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.search-btn:hover {
+    background-color: #0056b3;
+}
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.inbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px); /* Adjusted height to account for header and footer */
+}
+
+.message-list {
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+}
+
+.message {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.sender {
+    font-weight: bold;
+}
+
+.subject {
+    margin-top: 5px;
+    font-size: 1.2em;
+}
+
+.timestamp {
+    margin-top: 5px;
+    color: #777;
+}
+.reply-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.reply-btn:hover {
+    background-color: #0056b3;
+}
+.message-list {
+    width: 30%;
+    background-color: #f4f4f4;
+    padding: 20px;
+    overflow-y: auto; /* Tilføj en rullebjælke, hvis indholdet er større end beholderen */
+}
+
+.message-list h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.message-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.message-list li {
+    margin-bottom: 10px;
+}
+
+.message-list li a {
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+.message-list li a:hover {
+    color: #0056b3;
+}
+
+.message-details {
+    width: 70%;
+    padding: 20px;
+    background-color: #fff;
+    border-left: 1px solid #ccc;
+}
+
+.message-details h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.message-info {
+    margin-bottom: 10px;
+}
+
+.message-info .sender,
+.message-info .timestamp {
+    color: #777;
+}
+
+.message-content p {
+    color: #333;
+}
+
+.message-replies .reply {
+    margin-bottom: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
+
+.message-replies .reply-info .sender,
+.message-replies .reply-info .timestamp {
+    color: #777;
+}
+.user-table {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.user-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.user-table th, .user-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+.user-table th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.user-table td {
+    background-color: #fff;
+}
+
+.user-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.user-table tbody tr:hover {
+    background-color: #eaeaea;
+}
