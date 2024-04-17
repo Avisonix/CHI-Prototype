@@ -1,5 +1,4 @@
 const sqlhandler = require('../model/sqlhandler.js');
-const bcrypt = require('bcrypt');
 
 //login in object oriented way using a class 
 class User {
@@ -16,17 +15,23 @@ class User {
             return 'User not found';
         }
         //compare the password
-        const match = await bcrypt.compare(this.password, user[0].password);
-        if (match) {
+        if (this.password === user[0].password) {
             return 'Login successful';
         } else {
             return 'Login failed';
         }
     }
 }
-exports.login = async (req, res) => {
+
+const iLogIn = async (req, res) => {
+    console.log('Login request received');
+    console.log(req.body);
     const { email, password } = req.body;
     const user = new User(email, password);
-    const result = await user.login()
+    const result = await user.login();
     res.send(result);
-}
+};
+
+// Export the login function
+module.exports = { iLogIn };
+
