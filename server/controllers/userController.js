@@ -9,14 +9,14 @@ class User {
     //login a user
     async login() {
         //get the user from the database
-        const user = await sqlhandler(`SELECT * FROM users WHERE email = ?`, [this.email]);
+        const data = await sqlhandler(`SELECT a.*, b.role FROM users a inner join roles b on a.fk_role = b.role_id WHERE email = ? and valid_to = 29991231`, [this.email]);
         //check if the user exists
-        if (user.length === 0) {
+        if (data.length === 0) {
             return 'User not found';
         }
         //compare the password
-        if (this.password === user[0].password) {
-            return 'Login successful';
+        if (this.password === data[0].password) {
+            return data[0];
         } else {
             return 'Login failed';
         }
