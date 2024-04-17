@@ -2,8 +2,18 @@ document.addEventListener('DOMContentLoaded', () => {
     getOngoingCases();
     getNotStartedCases();
     getApprovalCases();
+    getCasesWithUsers();
 });
-
+function getCasesWithUsers() {
+    fetch('/api/cases-with-users')
+        .then(response => response.json())
+        .then(cases => {
+            updateCasesView(cases, 'case-list');
+        })
+        .catch(error => {
+            console.error('Error fetching cases with users:', error);
+        });
+}
 // Function to fetch ongoing cases from the API
 function getOngoingCases() {
     fetch('/api/ongoing-cases')
@@ -51,15 +61,15 @@ function updateCasesView(cases, targetId) {
         caseElement.classList.add('case');
         caseElement.innerHTML = `
             <div class="cell">
-                <h3>${caseItem.name}</h3>
-                <p>Status: ${caseItem.status}</p>
+                <h3>${caseItem.Name}</h3>
+                <p>Status: ${caseItem.Status}</p>
             </div>
             <div class="cell">
-                <p>Description: ${caseItem.description}</p>
+                <p>Description: ${caseItem.Description}</p>
                 <p>Assigned Users:</p>
                 <ul>
-                    ${caseItem.users && Array.isArray(caseItem.users) ?
-                        caseItem.users.map(user => `<li>${user.firstName} ${user.lastName}</li>`).join('') :
+                    ${caseItem.FirstName && caseItem.LastName ?
+                        `<li>${caseItem.FirstName} ${caseItem.LastName}</li>` :
                         '<li>No assigned users</li>'}
                 </ul>
                 <a href="#">View Full Case</a>

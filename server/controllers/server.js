@@ -60,6 +60,23 @@ app.get('/api/approval-cases', (req, res) => {
   });
 });
 
+app.get('/api/cases-with-users', (req, res) => {
+  const query = `
+    SELECT Cases.*, Users.FirstName, Users.LastName
+    FROM Cases
+    LEFT JOIN CaseAssignments ON Cases.CaseID = CaseAssignments.CaseID
+    LEFT JOIN Users ON CaseAssignments.UserID = Users.UserID`;
+    
+  db.all(query, (err, rows) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Internal Server Error');
+    } else {
+      res.json(rows);
+    }
+  });
+});
+
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
 });
