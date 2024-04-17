@@ -1,16 +1,29 @@
 const express = require('express');
+const path = require('path');
+const sqlite3 = require('sqlite3');
+
 const app = express();
 const port = 3000;
 
-// Importer sqlite3-pakken
-const sqlite3 = require('sqlite3');
+// Serve static files from the "public" directory
+app.use(express.static(path.join(__dirname, '../View')));
 
-// Opret forbindelse til SQLite-databasen
+// Endpoint for serving the index.html file
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// Endpoint for serving other HTML files
+app.get('/caseoverview', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'case_overview.html'));
+});
+
+// Connect to the SQLite database
 const db = new sqlite3.Database('../../joeDatabase.sqlite');
 
-// Endpoint for at hente alle brugere
-app.get('/api/users', (req, res) => {
-  const query = 'SELECT * FROM users'; // Erstat med den faktiske SQL-forespørgsel
+// Endpoint for fetching ongoing cases
+app.get('/api/ongoing-cases', (req, res) => {
+  const query = 'SELECT * FROM Cases WHERE status = "In Progress"';
   db.all(query, (err, rows) => {
     if (err) {
       console.error(err);
@@ -21,9 +34,22 @@ app.get('/api/users', (req, res) => {
   });
 });
 
-// Endpoint for at hente alle sager
-app.get('/api/cases', (req, res) => {
-  const query = 'SELECT * FROM cases'; // Erstat med den faktiske SQL-forespørgsel
+// Endpoint for fetching not started cases
+app.get('/api/not-started-cases', (req, res) => {
+  const query = 'SELECT * FROM Cases WHERE status = "Not Started"';
+  db.all(query, (err, rows) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Internal Server Error');
+    } else {
+      res.json(rows);
+    }
+  });
+});
+
+// Endpoint for fetching approval cases
+app.get('/api/approval-cases', (req, res) => {
+  const query = 'SELECT * FROM Cases WHERE status = "Pending Approval"';
   db.all(query, (err, rows) => {
     if (err) {
       console.error(err);
