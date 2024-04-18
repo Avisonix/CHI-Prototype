@@ -20,6 +20,25 @@ class User {
             res.send('Login failed');
         }
     }
+    //view cases
+    async viewCases(req, res) {
+        console.log('View cases request received');
+        const data = await sqlhandler(`SELECT * FROM cases innerjoin case_master on cases.fk_case_master = case_master.case_master_id`);
+        res.send(data);
+    }
+
+    //view courses
+
+    //view threads
+}
+
+//admin class
+class Admin extends User {
+    constructor(email, password) {
+        super(email, password);
+    }
+
+    //view users
 }
 
 module.exports = User; // Export the User class
