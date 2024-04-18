@@ -1,37 +1,25 @@
 const sqlhandler = require('../model/sqlhandler.js');
 
-//login in object oriented way using a class 
 class User {
     constructor(email, password) {
         this.email = email;
         this.password = password;
     }
-    //login a user
-    async login() {
-        //get the user from the database
-        const data = await sqlhandler(`SELECT a.*, b.role FROM users a inner join roles b on a.fk_role = b.role_id WHERE email = ? and valid_to = 29991231`, [this.email]);
-        //check if the user exists
+
+    async login(req, res) {
+        console.log('Login request received');
+        console.log(req.body);
+        const { email, password } = this;
+        const data = await sqlhandler(`SELECT a.*, b.role FROM users a INNER JOIN roles b ON a.fk_role = b.role_id WHERE email = ? AND valid_to = 29991231`, [email]);
+        
         if (data.length === 0) {
-            return 'User not found';
-        }
-        //compare the password
-        if (this.password === data[0].password) {
-            return data[0];
+            res.send('User not found');
+        } else if (password === data[0].password) {
+            res.send(data[0]);
         } else {
-            return 'Login failed';
+            res.send('Login failed');
         }
     }
 }
 
-const iLogIn = async (req, res) => {
-    console.log('Login request received');
-    console.log(req.body);
-    const { email, password } = req.body;
-    const user = new User(email, password);
-    const result = await user.login();
-    res.send(result);
-};
-
-// Export the login function
-module.exports = { iLogIn };
-
+module.exports = User; // Export the User class

@@ -1,13 +1,13 @@
 const sqlite3 = require('sqlite3').verbose();
 
 // Create a database file
-const db = new sqlite3.Database('./model.sqlite', (err) => {
+const db = new sqlite3.Database('./server/model/model.sqlite', (err) => {
     if (err) {
         return console.error(err.message);
     }
     console.log('Connected to the lav database.');
 });
-
+/*
 // Create the user table
 db.serialize(() => {
     db.run(`
@@ -49,6 +49,77 @@ db.serialize(() => {
     `);
     db.run(`
         INSERT INTO roles (role) VALUES ('knowledge_master')
+    `);
+});
+*/
+//create the case table
+db.serialize(() => {
+    db.run(`
+        CREATE TABLE IF NOT EXISTS cases (
+            case_id INTEGER PRIMARY KEY AUTOINCREMENT,
+            title TEXT NOT NULL,
+            description TEXT NOT NULL,
+            max_students INTEGER NOT NULL,
+            valid_from INTEGER NOT NULL,
+            valid_to INTEGER NOT NULL,
+            fk_case_master INTEGER NOT NULL
+        )
+    `);
+});
+//create the case_connection table
+db.serialize(() => {
+    db.run(`
+        CREATE TABLE IF NOT EXISTS case_connections (
+            fk_case_id INTEGER NOT NULL,
+            fk_user_id INTEGER NOT NULL
+        )
+    `);
+});
+//create the courses table
+db.serialize(() => {
+    db.run(`
+        CREATE TABLE IF NOT EXISTS courses (
+            course_id INTEGER PRIMARY KEY AUTOINCREMENT,
+            title TEXT NOT NULL,
+            description TEXT NOT NULL,
+            number_of_students INTEGER NOT NULL,
+            valid_from INTEGER NOT NULL,
+            valid_to INTEGER NOT NULL,
+            fk_professor INTEGER NOT NULL
+        )
+    `);
+});
+//create the course_case table
+db.serialize(() => {
+    db.run(`
+        CREATE TABLE IF NOT EXISTS course_cases (
+            fk_course_id INTEGER NOT NULL,
+            fk_case_id INTEGER NOT NULL
+        )
+    `);
+});
+//create threads table
+db.serialize(() => {
+    db.run(`
+        CREATE TABLE IF NOT EXISTS threads (
+            thread_id INTEGER PRIMARY KEY AUTOINCREMENT,
+            title TEXT NOT NULL,
+            original_question TEXT NOT NULL,
+            valid_from INTEGER NOT NULL,
+            valid_to INTEGER NOT NULL,
+            fk_user_id INTEGER NOT NULL
+        )
+    `);
+});
+
+//create the thread_comments table
+db.serialize(() => {
+    db.run(`
+        CREATE TABLE IF NOT EXISTS thread_comments (
+            fk_thread_id INTEGER NOT NULL,
+            fk_user_id INTEGER NOT NULL,
+            comment TEXT NOT NULL
+        )
     `);
 });
 

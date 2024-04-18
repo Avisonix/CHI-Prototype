@@ -1,8 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const userController = require('../controllers/userController.js');
+const User = require('../controllers/userController.js'); // Assuming your User model is in a file named User.js
 
-// Login route - pass the reference to the function without invoking it
-router.post('/login', userController.iLogIn);
+// POST route for login
+router.post('/login', async (req, res) => {
+    const { email, password } = req.body;
+    const user = new User(email, password);
+    await user.login(req, res); // Call the login method of the User class
+});
 
 module.exports = router;
