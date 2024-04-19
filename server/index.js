@@ -9,8 +9,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Import API routes
 const userRouter = require('./routes/userRouter.js');
+const adminRouter = require('./routes/adminRouter.js');
 // Use API routes
 app.use('/api', userRouter);
+app.use('/api/admin', adminRouter);
 
 // Start the server
 app.listen(3000, () => {
