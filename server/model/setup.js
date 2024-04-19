@@ -74,7 +74,7 @@ db.serialize(() => {
         )
     `);
 });
-
+/*
 //insert into case_status table the following statuses "Not Started", "Pending Approval", "In Progress"
 db.serialize(() => {
     db.run(`
@@ -85,6 +85,7 @@ db.serialize(() => {
         });
 }
 );
+*/
 
 // Create the case_connection table
 db.serialize(() => {
@@ -168,5 +169,33 @@ db.serialize(() => {
     `);
 });
 
+//create mock case
+db.serialize(() => {
+    db.run(`
+        INSERT INTO cases (title, description, max_students, valid_from, valid_to, fk_case_master, fk_status) VALUES ('Mock Case', 'This is a mock case', 5, strftime('%Y%m%d', 'now'), '29991231', 1, 1)`, function(err) {
+            if (err) {
+                console.error(err.message);
+            }
+        });
+});
+/*
+//create mock user with fk_role = 4
+db.serialize(() => {
+    db.run(`
+        INSERT INTO users (name, email, password, gender, valid_from, valid_to, notification, fk_role) 
+        VALUES ('Mr. Case Master', 'caseMaster@testmail.com', 'password123', 1, strftime('%Y%m%d', 'now'), '29991231', 1, 4)
+    `);
+});
+
+//create mock case
+
+db.serialize(() => {
+    db.run(`
+        INSERT INTO cases (title, description, max_students, valid_from, valid_to, fk_case_master, fk_status) VALUES ('Mock Case', 'This is a mock case', 5, strftime('%Y%m%d', 'now'), '29991231', 2, 1)`, function(err) {
+            if (err) {
+                console.error(err.message);
+            }
+        });
+});*/
 // Close the database connection
 db.close();
