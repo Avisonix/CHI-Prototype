@@ -52,12 +52,11 @@ class Admin extends User {
         const caseId = req.body;
         const alter = sqlhandler(`UPDATE cases SET valid_to = strftime('%Y%m%d', 'now') WHERE case_id = ${caseId}`);
         //insert same case with new valid_from
-        const insert = await sqlhandler(`INSERT INTO cases (title, description, max_students, valid_from, fk_case_master, fk_status) values (SELECT title, description, max_students, strftime('%Y%m%d', 'now'), fk_case_master, fk_status FROM cases WHERE case_id = ${caseId}) and valid_to = strftime('%Y%m%d', 'now')`);
-            if (insert) {
-            res.send('Case approved');
-        } else {
-            res.send('Case failed');
-        }
+        const insert = await sqlhandler(`INSERT INTO cases (title, description, max_students, valid_from, fk_case_master, fk_status) 
+        values (SELECT title, description, max_students, strftime('%Y%m%d', 'now'), fk_case_master, fk_status FROM cases WHERE case_id = ${caseId}) and valid_to = strftime('%Y%m%d', 'now')`);
+        console.log(alter);
+        console.log(insert);
+        res.send('Case failed');
     }
 
     async approveConnections(req, res) {
