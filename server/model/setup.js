@@ -1,3 +1,5 @@
+//vi mangler evt. at lave en tabel over feedbacks, hvor vi kan gemme feedbacks fra brugere
+
 const sqlite3 = require('sqlite3').verbose();
 
 // Create a database file

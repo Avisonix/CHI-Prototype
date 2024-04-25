@@ -27,10 +27,14 @@ class User {
         const data = await sqlhandler(`SELECT a.case_id, a.title, a.description, b.status, c.name as case_master_name, c.email as case_master_email
         FROM cases a
         INNER JOIN case_status b ON a.fk_status = b.status_id
-        INNER JOIN users c ON a.fk_case_master = c.user_id`);
-        const connections = await sqlhandler(`SELECT a.case_id, b.name as connected_name, b.email as connected_email
+        INNER JOIN users c ON a.fk_case_master = c.user_id
+        where a.valid_to = 29991231 and c.valid_to = 29991231`);
+        const connections = await sqlhandler(`
+        SELECT a.fk_case as case_id, b.name as connected_name, b.email as connected_email
         FROM case_connections a
-        INNER JOIN users b ON a.fk_student = b.user_id`);
+        INNER JOIN users b ON a.fk_user = b.user_id
+        INNER JOIN cases c ON a.fk_case = c.case_id
+        where b.valid_to = 29991231 and c.valid_to = 29991231`);
         const result = {
             cases: data,
             connections: connections
@@ -39,35 +43,5 @@ class User {
     }
 }
 
-//admin class
-class Admin extends User {
-    constructor(email, password) {
-        super(email, password);
-    }
-    //approve new case
-    //req body must include title, description, max_students, case_master_id, status
-    //subselect for status_id
-    async approveCase(req, res) {
-        //update valid_to for specific case 
-        const caseId = req.body;
-        const alter = sqlhandler(`UPDATE cases SET valid_to = strftime('%Y%m%d', 'now') WHERE case_id = ${caseId}`);
-        //insert same case with new valid_from
-        const insert = await sqlhandler(`INSERT INTO cases (title, description, max_students, valid_from, fk_case_master, fk_status) 
-        values (SELECT title, description, max_students, strftime('%Y%m%d', 'now'), fk_case_master, fk_status FROM cases WHERE case_id = ${caseId}) and valid_to = strftime('%Y%m%d', 'now')`);
-        console.log(alter);
-        console.log(insert);
-        res.send('Case failed');
-    }
 
-    async approveConnections(req, res) {
-        const { case_id, user_id } = req.body;
-        const insert = await sqlhandler(`INSERT INTO case_connections (fk_case, fk_student) VALUES (?, ?)`, [case_id, user_id]);
-        if (insert) {
-            res.send('Connection approved');
-        } else {
-            res.send('Connection failed');
-        }
-    }
-}
-
-module.exports = User; // Export the User class
+module.exports = {User}; // Export the User class
