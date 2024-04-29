@@ -1,19 +1,20 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif; 
 }
 
 .container {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    margin-top: 50px; /* Added margin for spacing */
+    flex-direction: column; 
+    width: calc(100% - 250px);
+    margin-top: 50px; 
 }
 
 .logo {
-    width: 300px; /* Adjusted logo width */
+    max-width: calc(100% - 250px);
     height: auto;
     margin-bottom: 20px;
 }
@@ -84,7 +85,7 @@ input[type="checkbox"] {
 }
 
 .extras a {
-    color: #007bff;
+    color: #e74b7f;
     text-decoration: none;
 }
 
@@ -138,10 +139,6 @@ input[type="checkbox"] {
     background-color: #444;
 }
 
-.content {
-    margin-left: 250px; /* Match sidebar width */
-    padding: 20px;
-}
 
 .menu li a.active {
     background-color: #444; /* Gør baggrunden mørkere for det aktive link */
@@ -149,11 +146,11 @@ input[type="checkbox"] {
 
 .content {
     max-width: calc(100% - 250px); /* Beregn bredden af .content-container ved at trække sidebar's bredde */
-    margin-left: 250px; /* Placer .content-container til højre for sidebar'en */
-    padding: 20px;
+    margin-left: 300px; /* Placer .content-container til højre for sidebar'en */ 
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: row; 
+    padding-top: 0px;
+    margin-right: 50px;
 }
 
 .case-list {
@@ -203,13 +200,13 @@ button {
     padding: 8px 16px;
     border: none;
     border-radius: 3px;
-    background-color: #007bff;
+    background-color: #e74b7f;
     color: #fff;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #e74b7f;
 }
 
 ul {
@@ -221,9 +218,7 @@ ul {
     display: flex;
     justify-content: center;
     margin-bottom: 20px; /* Tilføjelse af ekstra mellemrum nedenunder søgefeltet */
-    max-width: calc(100% - 250px);
-    margin-left: 300px;
-    margin-right: 50px;
+    max-width: calc(100% - 250px); 
 }
 
 .search-box {
@@ -238,13 +233,13 @@ ul {
     padding: 10px 20px;
     border: none;
     border-radius: 3px;
-    background-color: #007bff;
+    background-color: #e74b7f;
     color: #fff;
     cursor: pointer;
 }
 
 .search-btn:hover {
-    background-color: #0056b3;
+    background-color: #e74b7f;
 }
 .header {
     background-color: #333;
@@ -288,7 +283,7 @@ ul {
     color: #777;
 }
 .reply-btn {
-    background-color: #007bff;
+    background-color: #e74b7f;
     color: #fff;
     border: none;
     border-radius: 3px;
@@ -297,7 +292,7 @@ ul {
 }
 
 .reply-btn:hover {
-    background-color: #0056b3;
+    background-color: #e74b7f;
 }
 .message-list {
     width: 30%;
@@ -323,12 +318,12 @@ ul {
 
 .message-list li a {
     text-decoration: none;
-    color: #007bff;
+    color: #e74b7f;
     transition: color 0.3s ease;
 }
 
 .message-list li a:hover {
-    color: #0056b3;
+    color: #e74b7f;
 }
 
 .message-details {
@@ -367,9 +362,7 @@ ul {
     color: #777;
 }
 .user-table {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+    max-width: 800px; 
     border: 1px solid #ccc;
     border-radius: 5px;
 }
@@ -440,11 +433,20 @@ ul {
     padding: 10px 20px;
     border: none;
     border-radius: 3px;
-    background-color: #007bff;
+    background-color: #e74b7f;
     color: #fff;
     cursor: pointer;
 }
 
 .user-profile button[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #e74b7f;
 }
+.logo_box {
+    display: flex;
+    justify-content: center;
+    flex-direction: column; 
+    max-width: calc(100% - 250px);
+    margin-left: 300px;
+    margin-right: 50px;
+}
+ 

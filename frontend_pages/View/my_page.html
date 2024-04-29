@@ -1,55 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Page</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <div class="sidebar">
-        <div class="sidebar-header">
-            User Dashboard
-        </div>
-        <ul class="menu">
-            <li><a href="case_overview.html">Case Overview</a></li>
-            <li><a href="user_admin.html">User Administration</a></li>
-            <li><a href="messages.html">Messages</a></li>
-            <li><a href="my_page.html" class="active">My Page</a></li>
-        </ul>
+      <div class="sidebar-header">User Dashboard</div>
+      <ul class="menu">
+        <li><a href="case_overview.html">Case Overview</a></li>
+        <li><a href="user_admin.html">User Administration</a></li>
+        <li><a href="messages.html">Messages</a></li>
+        <li><a href="my_page.html" class="active">My Page</a></li>
+      </ul>
     </div>
-
+    <div class="logo_box">
+      <img
+        src="https://copenhagenhealthinnovation.dk/wp-content/uploads/2022/11/CHI-REG-H-kombineret-logo-3.png"
+        alt="Copenhagen Health Innovation Logo"
+        class="logo"
+      />
+    </div>
     <div class="content">
-        <div class="user-profile">
-            <h2>User Profile</h2>
-            <form id="user-form">
-                <div class="form-group">
-                    <label for="first-name">First Name:</label>
-                    <input type="text" id="first-name" name="first-name" value="John">
-                </div>
-                <div class="form-group">
-                    <label for="last-name">Last Name:</label>
-                    <input type="text" id="last-name" name="last-name" value="Doe">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" value="john@example.com">
-                </div>
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" value="********">
-                </div>
-                <div class="form-group">
-                    <label for="gender">Gender:</label>
-                    <select id="gender" name="gender">
-                        <option value="male" selected>Male</option>
-                        <option value="female">Female</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-                <button type="submit">Confirm Changes</button>
-            </form>
-        </div>
+      <div class="user-profile">
+        <h2>User Profile</h2>
+        <form id="user-form">
+          <div class="form-group">
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" name="first-name" value="John" />
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" name="last-name" value="Doe" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value="john@example.com"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value="********"
+            />
+          </div>
+          <div class="form-group">
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+              <option value="male" selected>Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <button type="submit">Confirm Changes</button>
+        </form>
+      </div>
     </div>
-</body>
+  </body>
 </html>

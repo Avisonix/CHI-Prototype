@@ -1,50 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <script src="../scripts/case_overview.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="sidebar">
-        <div class="sidebar-header">
-            Admin Dashboard
-        </div>
-        <ul class="menu">
-            <li><a href="case_overview.html" class="active">Case Overview</a></li>
-            <li><a href="user_admin.html">User Administration</a></li>
-            <li><a href="messages.html">Messages</a></li>
-            <li><a href="my_page.html">My Page</a></li>
-        </ul>
+      <div class="sidebar-header">Admin Dashboard</div>
+      <ul class="menu">
+        <li><a href="case_overview.html" class="active">Case Overview</a></li>
+        <li><a href="user_admin.html">User Administration</a></li>
+        <li><a href="messages.html">Messages</a></li>
+        <li><a href="my_page.html">My Page</a></li>
+      </ul>
     </div>
-    <div class="search-container">
-        <input type="text" class="search-box" placeholder="Search...">
+    <div class="logo_box">
+      <img
+        src="https://copenhagenhealthinnovation.dk/wp-content/uploads/2022/11/CHI-REG-H-kombineret-logo-3.png"
+        alt="Copenhagen Health Innovation Logo"
+        class="logo"
+      />
+      <div class="search-container">
+        <input type="text" class="search-box" placeholder="Search..." />
         <button class="search-btn">Search</button>
+      </div>
     </div>
-    <div class="content"> 
-        <div class="case-list">
-            <h2>Ongoing Cases</h2>
-            <!-- Her vises alle aktive cases -->
-            <div id="ongoing-cases" class="cases">
-                <!-- Sager vil blive indsat her -->
-            </div>
+    <div class="content">
+      <div class="case-list">
+        <h2>Ongoing Cases</h2>
+        <!-- Her vises alle aktive cases -->
+        <div id="ongoing-cases" class="cases">
+          <!-- Sager vil blive indsat her -->
         </div>
-        <div class="case-list">
-            <h2>Not Started Cases</h2>
-            <!-- Her vises alle ikke-startede cases -->
-            <div id="not-started-cases" class="cases">
-                <!-- Sager vil blive indsat her -->
-            </div>
+      </div>
+      <div class="case-list">
+        <h2>Not Started Cases</h2>
+        <!-- Her vises alle ikke-startede cases -->
+        <div id="not-started-cases" class="cases">
+          <!-- Sager vil blive indsat her -->
         </div>
-        <div class="case-list">
-            <h2>Case and Course Approvals</h2>
-            <!-- Her vises sager, der venter på godkendelse -->
-            <div id="approval-cases" class="cases">
-                <!-- Sager vil blive indsat her -->
-            </div>
+      </div>
+      <div class="case-list">
+        <h2>Case and Course Approvals</h2>
+        <!-- Her vises sager, der venter på godkendelse -->
+        <div id="approval-cases" class="cases">
+          <!-- Sager vil blive indsat her -->
         </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
