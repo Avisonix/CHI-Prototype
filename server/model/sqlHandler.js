@@ -34,5 +34,10 @@ const sqlHandler = (sql, params) => {
 /*sqlHandler(`INSERT INTO users (name, email, password, gender, valid_from, valid_to, notification, fk_role) 
             VALUES ('John Doe', 'johndoe@example.com', 'password123', 1, strftime('%Y%m%d', 'now'), '29991231', 1, 1);`);*/
   //sqlHandler('SELECT * FROM sqlite_master').then((r)=>console.log(r)).catch((e)=>console.log(e));
-
+  /*sqlHandler('delete from roles where role_id <5')
+  sqlHandler('insert into cases (title, description, max_students, fk_status, fk_case_master, valid_from, valid_to) values ("Ny hjemmeside til CHI", "CHI vil gerne have den sejeste hjemmeside muligt", 10,  strftime("%Y%m%d", "now"), 29991231,2, 1)')
+  sqlHandler('insert into cases (title, description, max_students, fk_status, fk_case_master, valid_from, valid_to) values ("Det her er også et eksempel", "Lorem ipsum", 10, strftime("%Y%m%d", "now"), 29991231,1, 1)')
+  sqlHandler('insert into cases (title, description, max_students, fk_status, fk_case_master, valid_from, valid_to) values ("Nyt lagersystem til Forsvaret", "Forsvaret skal brgue en hjemmeside til at styre deres lageret", 10, strftime("%Y%m%d", "now"), 29991231,2, 1)')
+  sqlHandler('insert into cases (title, description, max_students, fk_status, fk_case_master, valid_from, valid_to) values ("Nyt design til hjemmeside til KKIK", "Vi vil gerne have et nyt design til vores hjemmeside",10, strftime("%Y%m%d", "now"), 29991231,2, 1)')*/
+  sqlHandler('insert into cases (title, description, max_students, fk_status, fk_case_master, valid_from, valid_to) values ("Det her er sidste eksempel", "Jeg synes du skal trykke på mig", 10, strftime("%Y%m%d", "now"), 29991231,3, 1)')
 module.exports = sqlHandler;

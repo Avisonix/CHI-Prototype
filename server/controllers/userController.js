@@ -43,5 +43,4 @@ class User {
     }
 }
 
-
 module.exports = {User}; // Export the User class
