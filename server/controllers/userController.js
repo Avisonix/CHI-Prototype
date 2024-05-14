@@ -26,14 +26,14 @@ class User {
         //case_id, title, description, status, case_master(name), case_master(email), connections as nested objects
         const data = await sqlhandler(`SELECT a.case_id, a.title, a.description, b.status, c.name as case_master_name, c.email as case_master_email
         FROM cases a
-        INNER JOIN case_status b ON a.fk_status = b.status_id
-        INNER JOIN users c ON a.fk_case_master = c.user_id
+        left JOIN case_status b ON a.fk_status = b.status_id
+        left JOIN users c ON a.fk_case_master = c.user_id
         where a.valid_to = 29991231 and c.valid_to = 29991231`);
         const connections = await sqlhandler(`
         SELECT a.fk_case as case_id, b.name as connected_name, b.email as connected_email
         FROM case_connections a
-        INNER JOIN users b ON a.fk_user = b.user_id
-        INNER JOIN cases c ON a.fk_case = c.case_id
+        left JOIN users b ON a.fk_user = b.user_id
+        left JOIN cases c ON a.fk_case = c.case_id
         where b.valid_to = 29991231 and c.valid_to = 29991231`);
         const result = {
             cases: data,

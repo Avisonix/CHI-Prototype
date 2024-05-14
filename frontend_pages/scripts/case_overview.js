@@ -1,29 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    login("know@email.com", "123");
+    userId = 1;
+    getCasesWithUsers(); // Hent sager med tilknyttede brugere
 });
-
-let userId; // Variabel til at gemme userId efter login
-let caseId; // Variabel til at gemme caseId efter getCasesWithUsers
-
-// Login funktion
-async function login(email, password) {
-    const response = await fetch('http://localhost:3000/api/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email: email, password: password })
-    });
-    const data = await response.json();
-    if (response.ok) {
-        console.log('Login successful');
-        userId = data.user_id; // Gem userId efter login
-        getCasesWithUsers(); // Hent sager efter login
-    } else {
-        console.error('Login failed');
-    }
-}
-
 // Funktion til at hente sager med tilknyttede brugere
 function getCasesWithUsers() {
     fetch('http://localhost:3000/api/viewCases')
@@ -39,8 +17,6 @@ function getCasesWithUsers() {
                     CaseId: caseData.case_id
                 };
             });
-            caseId = data.cases.map(caseData => caseData.case_id); // Gemmer alle case_id fra backend i caseId-variablen
-            caseId = caseId[1]; // Gemmer det første case_id i caseId-variablen
             isDataLoaded = true; // Angiv at data er blevet hentet
             updateCasesView(getCases);
         })
@@ -55,13 +31,12 @@ function updateCasesView(cases) {
         const caseElement = createCaseElement(caseItem);
         const targetId = getTargetId(caseItem.Status);
         const caseListDiv = document.getElementById(targetId);
-
         // Tilføj "Approve" og "Deny" knapper, hvis status er "Pending Approval"
         if (caseItem.Status === 'Pending Approval') {
             const approveButton = createButton('Approve', 'approve-btn');
             const denyButton = createButton('Deny', 'deny-btn');
             approveButton.addEventListener('click', () => {
-                approveCase(userId, caseId); // Godkend sag ved at kalde approveCase-funktionen
+                approveCase(userId, caseItem.CaseId); // Godkend sag ved at kalde approveCase-funktionen
             });
             const buttonDiv = document.createElement('div');
             buttonDiv.classList.add('cell');
@@ -118,12 +93,13 @@ function createButton(text, className) {
 
 // Funktion til at godkende en sag
 function approveCase(userId, caseId) {
+    let body = JSON.stringify({ userId: userId, caseId: caseId })
     fetch('http://localhost:3000/api/admin/approveCase', {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ userId: userId, caseId: caseId }) // Send both userId and caseId as JSON data
+        body:body // Send both userId and caseId as JSON data
     })
     .then(response => {
         if (response.ok) {

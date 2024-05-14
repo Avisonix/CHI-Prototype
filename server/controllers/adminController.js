@@ -9,7 +9,6 @@ class Admin extends User {
     //req body must include title, description, max_students, case_master_id, status
     //subselect for status_id
     async approveCase(req, res) {
-        //update valid_to for specific case 
         //req body check
         const userId = req.body.userId;
         if (!userId) {
@@ -20,14 +19,14 @@ class Admin extends User {
         if (!caseId) {
             return res.send('caseId not found');
         }
-        const alter = sqlhandler(`UPDATE cases SET valid_to = strftime('%Y%m%d', 'now') WHERE case_id = ${caseId} `);
+        //update valid_to for specific case 
+        sqlhandler(`UPDATE cases SET valid_to = strftime('%Y%m%d', 'now') WHERE case_id = ${caseId} `).then(()=>{
         //insert same case with new valid_from
-        const insert = await sqlhandler(`
-        INSERT INTO cases (title, description, max_students, valid_from, fk_case_master, fk_status, valid_to) 
+        sqlhandler(`INSERT INTO cases (title, description, max_students, valid_from, fk_case_master, fk_status, valid_to) 
         SELECT title, description, max_students, strftime('%Y%m%d', 'now'), fk_case_master, 1, 29991231
         FROM cases 
-        WHERE case_id = ${caseId}
-    `);
+        WHERE case_id = ${caseId}`);
+        });
     //insert case_connections
         return res.send("Case approved");
     }

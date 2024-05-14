@@ -1,5 +1,3 @@
-//vi mangler evt. at lave en tabel over feedbacks, hvor vi kan gemme feedbacks fra brugere
-
 const sqlite3 = require('sqlite3').verbose();
 
 // Create a database file
@@ -76,7 +74,7 @@ db.serialize(() => {
         )
     `);
 });
-/*
+
 //insert into case_status table the following statuses "Not Started", "Pending Approval", "In Progress"
 db.serialize(() => {
     db.run(`
@@ -87,7 +85,6 @@ db.serialize(() => {
         });
 }
 );
-*/
 
 // Create the case_connection table
 db.serialize(() => {
@@ -180,7 +177,7 @@ db.serialize(() => {
             }
         });
 });
-/*
+
 //create mock user with fk_role = 4
 db.serialize(() => {
     db.run(`
@@ -190,14 +187,33 @@ db.serialize(() => {
 });
 
 //create mock case
-
 db.serialize(() => {
     db.run(`
-        INSERT INTO cases (title, description, max_students, valid_from, valid_to, fk_case_master, fk_status) VALUES ('Mock Case', 'This is a mock case', 5, strftime('%Y%m%d', 'now'), '29991231', 2, 1)`, function(err) {
+        INSERT INTO cases (title, description, max_students, valid_from, valid_to, fk_case_master, fk_status) VALUES ('Mock Case', 'This is a mock case', 5, strftime('%Y%m%d', 'now'), '29991231', 1, 1)`, function(err) {
             if (err) {
                 console.error(err.message);
             }
         });
-});*/
+    db.run(`insert into cases (title, description, max_students, valid_from, valid_to, fk_case_master, fk_status) values ("Ny hjemmeside til CHI", "CHI vil gerne have den sejeste hjemmeside muligt", 10, strftime("%Y%m%d", "now"), 29991231, 1, 2)`, function(err) {
+        if (err) {
+            console.error(err.message);
+        }
+    });
+    db.run(`insert into cases (title, description, max_students, valid_from, valid_to, fk_case_master, fk_status) values ("Det her er også et eksempel", "Lorem ipsum", 10, strftime("%Y%m%d", "now"), 29991231, 1, 1)`, function(err) {
+        if (err) {
+            console.error(err.message);
+        }
+    });
+    db.run(`insert into cases (title, description, max_students, valid_from, valid_to, fk_case_master, fk_status) values ("Nyt lagersystem til Forsvaret", "Forsvaret skal brgue en hjemmeside til at styre deres lageret", 10, strftime("%Y%m%d", "now"), 29991231, 1, 2)`, function(err) {
+        if (err) {
+            console.error(err.message);
+        }
+    });
+    db.run(`insert into cases (title, description, max_students, valid_from, valid_to, fk_case_master, fk_status) values ("Nyt design til hjemmeside til KKIK", "Vi vil gerne have et nyt design til vores hjemmeside", 10, strftime("%Y%m%d", "now"), 29991231, 1, 3)`, function(err) {
+        if (err) {
+            console.error(err.message);
+        }
+    });
+});
 // Close the database connection
 db.close();
