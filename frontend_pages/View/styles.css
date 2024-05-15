@@ -449,4 +449,71 @@ ul {
     margin-left: 300px;
     margin-right: 50px;
 }
- 
+.case-list {
+    width: 30%; /* Adjust the width as needed */
+    background-color: #f4f4f4;
+    padding: 20px;
+    overflow-y: auto; /* For scrolling if many cases */
+}
+
+.case-list h2 {
+    color: #333;
+}
+
+.case-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.case-list li {
+    margin-bottom: 10px;
+}
+
+.case-list li a {
+    text-decoration: none;
+    color: #e74b7f;
+    display: block;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+.case-list li a:hover,
+.case-list li a.active {
+    background-color: #e74b7f;
+    color: #fff;
+}
+
+.feedback-details {
+    width: 70%; /* Adjust the width as needed */
+    padding: 20px;
+    background-color: #fff;
+    border-left: 1px solid #ccc;
+}
+
+.feedback-details h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.feedback-info {
+    margin-bottom: 10px;
+}
+.feedback-comments ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.feedback-comments li {
+    background-color: #f9f9f9;
+    margin: 5px 0;
+    padding: 10px;
+    border-left: 5px solid #e74b7f;
+}
+.case-details {
+    margin-left: 300px; /* Adjust based on sidebar width */
+    padding: 20px;
+    background-color: #fff;
+    border-left: 1px solid #ccc;
+    display: none; /* Initially hidden */
+}
