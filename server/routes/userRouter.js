@@ -8,6 +8,7 @@ userRouter.post('/login', async (req, res) => {
     const user = new User(email, password);
     await user.login(req, res); // Call the login method of the User class
 });
+// GET route for viewCases
 userRouter.get('/viewCases', async (req, res) => {
     const user = new User();
     await user.viewCases(req, res); // Call the viewCases method of the User class

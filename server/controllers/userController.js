@@ -5,7 +5,7 @@ class User {
         this.email = email;
         this.password = password;
     }
-
+    //backend login. Not implemented in frontend
     async login(req, res) {
         console.log('Login request received');
         console.log(req.body);
@@ -20,15 +20,16 @@ class User {
             res.send('Login failed');
         }
     }
+
     //view cases
-    //missing where = valid to
     async viewCases(req, res) {
-        //case_id, title, description, status, case_master(name), case_master(email), connections as nested objects
+        //Gets all cases that are valid
         const data = await sqlhandler(`SELECT a.case_id, a.title, a.description, b.status, c.name as case_master_name, c.email as case_master_email
         FROM cases a
         left JOIN case_status b ON a.fk_status = b.status_id
         left JOIN users c ON a.fk_case_master = c.user_id
         where a.valid_to = 29991231 and c.valid_to = 29991231`);
+        //loads connections. Not implemented in frontend
         const connections = await sqlhandler(`
         SELECT a.fk_case as case_id, b.name as connected_name, b.email as connected_email
         FROM case_connections a

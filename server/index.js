@@ -1,5 +1,4 @@
 const express = require('express');
-const session = require('express-session');
 const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
@@ -25,7 +24,7 @@ app.use('/scripts', express.static(scriptsPath, {
   }
 }));
 
-// Importer API-ruter
+// Import API-routes
 const userRouter = require('./routes/userRouter.js');
 const adminRouter = require('./routes/adminRouter.js');
 
