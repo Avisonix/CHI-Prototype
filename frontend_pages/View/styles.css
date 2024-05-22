@@ -93,7 +93,6 @@ input[type="checkbox"] {
     text-decoration: underline;
 }
 
-/* Sidebar */
 .sidebar {
     background-color: #333;
     color: #fff;
@@ -117,7 +116,7 @@ input[type="checkbox"] {
 .menu {
     list-style: none;
     padding: 0;
-    margin: 0; /* Fjern standardmargen */
+    margin: 0;
 }
 
 .menu li {
@@ -141,12 +140,12 @@ input[type="checkbox"] {
 
 
 .menu li a.active {
-    background-color: #444; /* Gør baggrunden mørkere for det aktive link */
+    background-color: #444; 
 }
 
 .content {
-    max-width: calc(100% - 250px); /* Beregn bredden af .content-container ved at trække sidebar's bredde */
-    margin-left: 300px; /* Placer .content-container til højre for sidebar'en */ 
+    max-width: calc(100% - 250px); 
+    margin-left: 300px; 
     display: flex;
     flex-direction: row; 
     padding-top: 0px;
@@ -156,10 +155,10 @@ input[type="checkbox"] {
 .case-list {
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Lad .case-list fylde det tilgængelige rum */
-    margin-right: 30px; /* Tilføj en lille margin til højre */
-    max-height: calc(100vh - 100px); /* Sæt en maksimal højde for .case-list (100vh minus header og margen) */
-    width: calc(100% - 30px); /* Juster bredden til at tage højde for marginen */
+    flex-grow: 1; 
+    margin-right: 30px; 
+    max-height: calc(100vh - 100px); 
+    width: calc(100% - 30px); 
 }
 
 .case {
@@ -168,7 +167,7 @@ input[type="checkbox"] {
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
-    width: 100%; /* Sæt bredden til 100% */
+    width: 100%;
 }
 
 .cell {
@@ -217,13 +216,13 @@ ul {
 .search-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px; /* Tilføjelse af ekstra mellemrum nedenunder søgefeltet */
+    margin-bottom: 20px; 
     max-width: calc(100% - 250px); 
 }
 
 .search-box {
     padding: 10px;
-    margin-right: 10px; /* Tilføjelse af højremargen for at adskille søgefeltet fra knappen */
+    margin-right: 10px; 
     border: 1px solid #ccc;
     border-radius: 3px;
     box-sizing: border-box;
@@ -252,7 +251,7 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 100px); /* Adjusted height to account for header and footer */
+    height: calc(100vh - 100px);
 }
 
 .message-list {
@@ -298,7 +297,7 @@ ul {
     width: 30%;
     background-color: #f4f4f4;
     padding: 20px;
-    overflow-y: auto; /* Tilføj en rullebjælke, hvis indholdet er større end beholderen */
+    overflow-y: auto; 
 }
 
 .message-list h2 {
@@ -449,4 +448,71 @@ ul {
     margin-left: 300px;
     margin-right: 50px;
 }
- 
+.case-list {
+    width: 30%; 
+    background-color: #f4f4f4;
+    padding: 20px;
+    overflow-y: auto; 
+}
+
+.case-list h2 {
+    color: #333;
+}
+
+.case-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.case-list li {
+    margin-bottom: 10px;
+}
+
+.case-list li a {
+    text-decoration: none;
+    color: #e74b7f;
+    display: block;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+.case-list li a:hover,
+.case-list li a.active {
+    background-color: #e74b7f;
+    color: #fff;
+}
+
+.feedback-details {
+    width: 70%; 
+    padding: 20px;
+    background-color: #fff;
+    border-left: 1px solid #ccc;
+}
+
+.feedback-details h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.feedback-info {
+    margin-bottom: 10px;
+}
+.feedback-comments ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.feedback-comments li {
+    background-color: #f9f9f9;
+    margin: 5px 0;
+    padding: 10px;
+    border-left: 5px solid #e74b7f;
+}
+.case-details {
+    margin-left: 300px; 
+    padding: 20px;
+    background-color: #fff;
+    border-left: 1px solid #ccc;
+    display: none; 
+}
